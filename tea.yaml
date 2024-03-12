@@ -1,22 +1,4 @@
-import requests
 
-def get_btc_price():
-    try:
-        # 使用CoinGecko API获取比特币价格
-        url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
-        response = requests.get(url)
-        data = response.json()
-
-        # 提取比特币价格
-        btc_price = data["bitcoin"]["usd"]
-
-        return btc_price
-
-    except Exception as e:
-        print(f"Error fetching BTC price: {e}")
-        return None
-
-# 调用函数并打印比特币价格
 btc_price = get_btc_price()
 if btc_price is not None:
     print(f"The current BTC price is ${btc_price} USD.")
